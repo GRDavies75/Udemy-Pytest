@@ -1,5 +1,5 @@
 import pytest   
-pytestmark = [pytest.mark.smoke, pytest.mark.sanity, pytest.mark.str]
+
 
 @pytest.mark.sanity
 def test_str01() -> None:
