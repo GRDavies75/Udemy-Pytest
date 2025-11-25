@@ -30,3 +30,18 @@ def test_strslice() -> None:
     assert letters[10:] == 'klmnopqrstuvwxyz'
     assert letters[-3:] == 'xyz'
     assert letters[:21:5] == 'afkpu'
+
+
+@pytest.mark.str
+def test_strsplit() -> None:
+    s1 = 'Python,Pytest and Automation'
+    assert s1.split() == ['Python,Pytest', 'and', 'Automation']
+    assert s1.split(',') == ['Python', 'Pytest and Automation']
+
+
+#task TBD
+def test_strjoin() -> None:
+    pass
+    s1 = 'Python,Pytest and Automation'
+    l1 = ['Python,Pytest', 'and', 'Automation']
+    l2 = ['Python', 'Pytest and Automation']
