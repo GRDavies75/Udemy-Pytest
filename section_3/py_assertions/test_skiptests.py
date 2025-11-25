@@ -1,3 +1,5 @@
+import sys
+
 import pytest
 
 
@@ -8,6 +10,7 @@ def celsius_to_fahrenheit(celc: float = 0.0) -> float:
     fahrenheit = (celc * FAHRENHEIT_TO_CELSIUS_RATIO) + FAHRENHEIT_TO_CELSIUS_OFFSET
     return fahrenheit
 
+
 # print (celsius_to_fahrenheit())
 
 
@@ -16,8 +19,10 @@ def test_case01() -> None:
     assert type(FAHRENHEIT_TO_CELSIUS_RATIO) == float
 
 
+@pytest.mark.skipif(sys.version_info > (3,8), .reason="Does not work on python version above 3.8")
 def test_case02() -> None:
     assert celsius_to_fahrenheit() == 32
+
 
 def test_case03() -> None:
     assert celsius_to_fahrenheit(38) == 100.4
