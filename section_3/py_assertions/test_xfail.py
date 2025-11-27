@@ -15,8 +15,8 @@ def test_str04() -> None:
     assert letters[100]
 
 
-# @pytest.mark.xfail(raises=TypeError)
-@pytest.mark.xfail(raises=IndexError)
+@pytest.mark.xfail(raises=TypeError)
+# @pytest.mark.xfail(raises=IndexError)
 def test_str05() -> None:
     letters = 'abcd'
     num = 1234
