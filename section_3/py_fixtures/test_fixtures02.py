@@ -16,6 +16,17 @@ def setup01() -> Generator[list[str]]:
     wk1.pop()
 
 
-def test_extendList(setup01) -> None:
+@pytest.fixture()
+def setup02() -> Generator[list[str]]:
+    wk2 = weekdays2.copy()
+    wk2.insert(0, 'thur')
+    yield wk2
+
+
+def test_extendList(setup01: list[str]) -> None:
     setup01.extend(weekdays2)
     assert setup01 == ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun']
+
+
+def test_len(setup01: list[str], setup02: list[str]) -> None:
+    assert len(weekdays1 + setup02) == len(setup01 + weekdays2)
