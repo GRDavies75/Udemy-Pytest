@@ -40,4 +40,4 @@ def test_reverseList(setup_list: list[str]) -> None:
 @pytest.mark.usefixtures("setup_list")
 def test_usefixturedemo() -> None:
     assert 1 == 1
-    print (setup_list[0])
+    print (setup_list[0]) # type: ignore
