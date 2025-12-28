@@ -24,14 +24,14 @@ def setup01() -> Generator[list[str], Any, None]:
     # wk1.pop()
 
 
-@pytest.fixture
+@pytest.fixture()
 def setup02() -> Generator[list[str], Any, None]:
     wk2 = pytest.weekdays2.copy() # type: ignore
     wk2.insert(0, 'thur')
     yield wk2
 
 
-@pytest.fixture
+@pytest.fixture()
 def setup03():
     '''
     No type annotation because of Pytest gives problems
@@ -45,8 +45,25 @@ def setup03():
     f.close()
     os.remove(filename)
 
+
 @pytest.fixture()
-def setup04(request):
+def setup04(request: pytest.FixtureRequest):
+    mon = getattr(request.module, "months")
     print("\n in Fixture setup04")
     print("\n Fixture Scope: " + str(request.scope))
-    print("\n Calling function: " + str(request.scope))
+    print("\n Calling function: " + str(request.function.__name__))
+    print("\n Calling module: " + str(request.module.__name__))
+
+    mon.append("Apr")
+    yield mon
+
+
+@pytest.fixture()
+def setup05():
+    def get_structure(name: str):
+        if name == 'list':
+            return [1, 2, 3]    
+        elif name == 'tuple':
+            return (1, 3, 4)    
+
+    return get_structure
