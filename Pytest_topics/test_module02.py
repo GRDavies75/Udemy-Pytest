@@ -1,7 +1,7 @@
 
 class TestMyStuff():
     def test_type(self) -> None:
-        assert type(1.3) == int
+        assert type(1.3) == float
 
 
     def test_strs(self) -> None:

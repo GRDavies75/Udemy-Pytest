@@ -8,7 +8,7 @@ def test_a1() -> None:
 
 
 def test_a2() -> None:
-    assert 9 / 5 == 1.5, "failed test intentionally"
+    assert 7.5 / 5 == 1.5, "failed test due to poor math"
 
 
 # test no.3
